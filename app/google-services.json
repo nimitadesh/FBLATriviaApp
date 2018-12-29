@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "351243496448",
+    "firebase_url": "https://fbla-trivia.firebaseio.com",
+    "project_id": "fbla-trivia",
+    "storage_bucket": "fbla-trivia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351243496448:android:87f86affb586c984",
+        "android_client_info": {
+          "package_name": "com.nimitadeshpande.fblatrivia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351243496448-h59bg90loa2scb5d884n40h2l70fcet0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nimitadeshpande.fblatrivia",
+            "certificate_hash": "c5206fae32b37824d56eaf144ad8af6cc06ebb43"
+          }
+        },
+        {
+          "client_id": "351243496448-hj7odpv8dmppv9c720r5ls9bjlne9d3g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIEbqQb9hZpdVefuE9rznXKFPjE-g90pc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "351243496448-hj7odpv8dmppv9c720r5ls9bjlne9d3g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
