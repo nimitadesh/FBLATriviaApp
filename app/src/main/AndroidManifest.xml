@@ -14,9 +14,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Controller.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+        <activity android:name=".Controller.RegistrationActivity" />
+        <activity android:name=".Controller.HomeActivity" />
+        <activity android:name=".Controller.CategoryActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".Controller.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

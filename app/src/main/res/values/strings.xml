@@ -14,4 +14,9 @@
         completions."
     </string>
     <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to registration -->
+    <string name="registration_title">Register here!</string>
+
+
 </resources>

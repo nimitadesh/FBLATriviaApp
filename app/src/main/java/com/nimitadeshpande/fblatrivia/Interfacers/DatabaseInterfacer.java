@@ -11,17 +11,13 @@ import java.util.Map;
 
 public class DatabaseInterfacer {
 
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
     static Map<Integer, String> questions;
     //private DatabaseReference mDatabase;
-    public static void addInfoToDatabase() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+    public void addInfoToDatabase() {
 
-        myRef.setValue("Hello, World!");
         questions = new HashMap<Integer, String>();
-
-
     }
     /**
      * Registration logic
