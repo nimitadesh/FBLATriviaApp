@@ -25,7 +25,7 @@
         app:layout_constraintVertical_bias="0.085" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/quizHomeButton"
         android:layout_width="229dp"
         android:layout_height="53dp"
         android:layout_marginStart="8dp"
@@ -33,6 +33,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@color/colorPrimary"
+        android:onClick="onClickQuizHome"
         android:text="Quiz Time!"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="18sp"
@@ -43,62 +44,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.85" />
 
-    <RadioGroup
-        android:layout_width="288dp"
-        android:layout_height="226dp"
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="240dp"
+        android:layout_height="74dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:checkedButton="@+id/competitiveEvents"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.423">
-
-        <RadioButton
-            android:id="@+id/competitiveEvents"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Competitive Events"
-            android:textSize="24sp" />
-
-        <RadioButton
-            android:id="@+id/sponsorsPartners"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Sponsors and Partners"
-            android:textSize="24sp" />
-
-        <RadioButton
-            android:id="@+id/nationalOfficers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="National Officers"
-            android:textAlignment="textStart"
-            android:textSize="24sp" />
-
-        <RadioButton
-            android:id="@+id/regions"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="FBLA Regions"
-            android:textSize="24sp" />
-
-        <RadioButton
-            android:id="@+id/recognitionAwards"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Recognition and Awards"
-            android:textSize="24sp" />
-    </RadioGroup>
+        app:layout_constraintVertical_bias="0.265" />
 
 </android.support.constraint.ConstraintLayout>
 

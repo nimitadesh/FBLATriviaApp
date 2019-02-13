@@ -17,6 +17,8 @@
 
     <!-- Strings related to registration -->
     <string name="registration_title">Register here!</string>
+    <string name="title_activity_quiz">QuizActivity</string>
+    <string name="title_activity_score">ScoreActivity</string>
 
 
 </resources>

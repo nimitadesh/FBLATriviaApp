@@ -4,7 +4,7 @@ public enum Category {
 
     COMPETITIVE_EVENTS("Competitive Events"),
     NATIONAL_OFFICERS("National Officers"),
-    NATIONAL_SPONSORS("National Sponsors"),
+    NATIONAL_SPONSORS("National Sponsors and Partners"),
     FBLA_HISTORY("FBLA History"),
     FBLA_REGIONS("FBLA Regions");
 
