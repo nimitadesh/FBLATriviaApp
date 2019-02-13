@@ -6,10 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -17,7 +15,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,11 +23,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.nimitadeshpande.fblatrivia.R;
 
 public class LoginActivity extends AppCompatActivity {
-
+    //Create a reference to firebase database
     DatabaseReference dbref = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference loginRef;
     private FirebaseAuth auth;
-    private String uid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,22 +39,21 @@ public class LoginActivity extends AppCompatActivity {
         EditText passwordText = (EditText)findViewById(R.id.password);
         String password = passwordText.getText().toString();
 
-        Log.d("WEFOUNDIT", username + " " + password);
+        //If sign in credentials are valid, perform login
         if (isValidSignInCredentials(username, password)) {
-            Log.d("worked", "It worked");
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
-
         } else {
             //display some error
         }
-
     }
 
     private boolean isValidSignInCredentials(String username, String password) {
-        //check database stuff
+        //see if the user entered an email address for login, if yes, call method performLogin
+        //if not, retrieve the user email from the database and perform login
         final String pwd = password;
         if(Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+            //Log message for debugging
             Log.d("matched", "email matched");
             performLogin(username, password);
         }
@@ -72,12 +66,10 @@ public class LoginActivity extends AppCompatActivity {
                         performLogin(userId, pwd);
                     }
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
-
                 public void onCancelled(FirebaseError firebaseError) {
 
                 }
@@ -91,22 +83,11 @@ public class LoginActivity extends AppCompatActivity {
         auth.signInWithEmailAndPassword(emailId, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                //if(task.isSuccessful()){
                     Log.d("completedLogIn_unique", "Login complete");
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                     intent.putExtra("emailId", emailId);
                     startActivity(intent);
                     finish();
-                //}
-//                else{
-//                    Toast toast = new Toast(LoginActivity.this);
-//                    toast.setGravity(Gravity.TOP, 0, 0);
-//                    toast.makeText(LoginActivity.this,
-//                            "New User! Please Register", Toast.LENGTH_LONG).show();
-//                    Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
-//                    startActivity(intent);
-//                    finish();
-//                }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -116,11 +97,14 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-
+    //If new user, open the RegistrationActivity to create new account
     public void onClickCreateAccount(View view) {
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
     }
 
-
+    public void onClickLicensing(View view) {
+        Intent intent = new Intent(this, LicensingActivity.class);
+        startActivity(intent);
+    }
 }

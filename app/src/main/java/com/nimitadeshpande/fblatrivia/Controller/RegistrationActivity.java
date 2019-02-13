@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,12 +19,10 @@ import com.nimitadeshpande.fblatrivia.Model.User;
 import com.nimitadeshpande.fblatrivia.R;
 import com.nimitadeshpande.fblatrivia.utils.FblaUtils;
 
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class RegistrationActivity extends AppCompatActivity {
-
+    //create database reference variables
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
@@ -34,7 +31,7 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
     }
-
+    //grab the user input on the registration page and save it to the database
     public void onClickRegister(View view) {
         boolean isAllCorrect = true;
 
@@ -88,7 +85,7 @@ public class RegistrationActivity extends AppCompatActivity {
             startActivity(intent);
             //save user in firebase
             User user = new User(fname, lname, username, email, password);
-
+            //initialize scores for the five categories to 0
             mDatabase.child("user").child(username).setValue(user);
             mDatabase.child("scores").child(FblaUtils.EncodeString(email)).child("competitiveEvents").child("score").setValue(0);
             mDatabase.child("scores").child(FblaUtils.EncodeString(email)).child("nationalOfficers").child("score").setValue(0);

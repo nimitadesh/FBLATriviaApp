@@ -3,8 +3,6 @@ package com.nimitadeshpande.fblatrivia.Controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -23,7 +21,7 @@ import com.nimitadeshpande.fblatrivia.R;
 import com.nimitadeshpande.fblatrivia.utils.FblaUtils;
 
 public class ScoreActivity extends AppCompatActivity {
-
+    //create database reference
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference dbref = firebaseDatabase.getReference();
     private QuizCategory quizCategory;
@@ -44,7 +42,7 @@ public class ScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_score);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        //get scores for the five categories
         DatabaseReference competitiveEventsRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fbla-trivia.firebaseio.com/scores/" + FblaUtils.EncodeString(emailId) + "/competitiveEvents/score");
         DatabaseReference nationalOfficersRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fbla-trivia.firebaseio.com/scores/" + FblaUtils.EncodeString(emailId) + "/nationalOfficers/score");
         DatabaseReference nationalSponsorsRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fbla-trivia.firebaseio.com/scores/" + FblaUtils.EncodeString(emailId) + "/nationalSponsors/score");
